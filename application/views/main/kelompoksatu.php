@@ -2,10 +2,12 @@
 <form>
   <div class="form-group">
     <label for="formGroupExampleInput">Api yang tersedia : </label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Masukkan kata kunci">
-    <button type="button" class="btn btn-success" style="margin-top:1%">Search</button>
-
-    <?php print_r($dataFromModel) ?>
+    <br>
+    <?php foreach ($data->result() as $row): ?>
+    <?php $kategorine = $row->kategori ?>
+      <h3><a href="<?php echo base_url().'index.php/ApiController/pilihanUser/'.$kategorine ?>"><?php echo $row->kategori ?></a></h3>
+      <br>
+    <?php endforeach; ?>
   </div>
 </form>
 </div>
